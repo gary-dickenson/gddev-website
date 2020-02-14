@@ -1,0 +1,22 @@
+FROM node:12.16.1-alpine3.10
+WORKDIR /app
+
+# Versions
+RUN npm -v
+RUN node -v
+
+# Bundle app source
+COPY . ./
+
+# install and cache dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+
+ENV NODE_ENV production
+ENV PUBLIC_PATH "/"
+
+RUN npm run build
+
+# start container
+CMD ["npm", "start"]
