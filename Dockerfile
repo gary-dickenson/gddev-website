@@ -10,12 +10,14 @@ COPY . ./
 
 # install and cache dependencies
 COPY package.json ./
-COPY package-lock.json yarn.lock ./
+COPY package-lock.json ./
 RUN npm install
 
 ENV NODE_ENV development
 #ENV PORT 3000
 ENV PUBLIC_PATH "/"
+
+EXPOSE 80
 
 RUN npm run build
 # start container

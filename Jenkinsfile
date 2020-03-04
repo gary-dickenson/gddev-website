@@ -1,36 +1,35 @@
 node {
     currentBuild.result = "SUCCESS"
 
-    withEnv(["DEPLOYMENT_SERVER=pi@pi-2", "APP_NAME=gddev-website"]){
+    withEnv(["DEPLOYMENT_SERVER=pi@pi-4", "APP_NAME=gddev-website"]){
         try {
+            deleteDir()
             stage("Checkout"){
                 checkout scm
             }
 
             stage("Environment") {
               sh "echo $APP_NAME"
-              //sh "git --version"
               echo "Branch: ${env.BRANCH_NAME}"
-              //sh "docker -v"
-              //sh "printenv"
             }
 
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
-                sh "docker build -t $APP_NAME --no-cache ."
+                sh "docker build -t $APP_NAME ."
                 sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
-                //sh "docker push ggddev-website"
-                //sh "docker rmi -f gddev-website"
               }
             }
 
             stage("Deploy"){
-                sh "docker save -o $APP_NAME-docker-image.tar gddev-website:latest"
+                sh "docker save -o $APP_NAME-docker-image.tar gddev-website:${currentBuild.number}"
+                sh "docker -H ssh://$DEPLOYMENT_SERVER rm -r /tmp/$APP_NAME-docker-image.tar"
+                sh "docker rmi -f \$(docker images -q gddev-website)"
                 sh "rsync -avzhe ssh -v $APP_NAME-docker-image.tar $DEPLOYMENT_SERVER:/tmp/"
-                sh "docker load -i $APP_NAME-docker-image.tar"
-                sh "rm -r $APP_NAME-docker-image.tar"
-                sh "docker stop $APP_NAME || true && docker rm $APP_NAME || true"
-                sh "docker run $APP_NAME"
+                sh "rm /tmp/$APP_NAME-docker-image.tar"
+                sh "docker -H ssh://$DEPLOYMENT_SERVER load -i /tmp/$APP_NAME-docker-image.tar"
+                sh "docker -H ssh://$DEPLOYMENT_SERVER stop $APP_NAME"
+                sh "docker -H ssh://$DEPLOYMENT_SERVER rm $APP_NAME"
+                sh "docker -H ssh://$DEPLOYMENT_SERVER run -d -p 80:80 $APP_NAME"
             }
         } catch (err) {
             currentBuild.result = "FAILURE"
