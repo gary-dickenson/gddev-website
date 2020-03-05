@@ -1,12 +1,20 @@
 # Stage 1 - Building image
-FROM node:12.15.0-alpine as node
+FROM node:12.16.1-alpine3.10 as node
 WORKDIR /app
+
+# Versions
+RUN npm -v
+RUN node -v
+
+# Bundle app source
 COPY . /app
-ENV PATH /app/node_modules/.bin:$PATH
+
 # install and cache dependencies
-RUN yarn
-# build for production
-RUN yarn build
+#COPY package.json ./
+#COPY package-lock.json ./
+RUN npm install
+RUN npm run build
+
 # Stage 2 - Running image
 # set up production environment
 FROM nginx:alpine
@@ -15,6 +23,8 @@ COPY /nginx/nginx.conf /etc/nginx/nginx.conf
 HEALTHCHECK --interval=5s \
             --timeout=5s \
             CMD curl -f http://127.0.0.1 || exit 1
+EXPOSE 80
+
 # start nginx
 ENV NODE_ENV production
 CMD ["nginx", "-g", "daemon off;"]
