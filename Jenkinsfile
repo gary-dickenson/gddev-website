@@ -8,29 +8,28 @@ node {
                 checkout scm
             }
 
-            stage("Environment") {
-              sh "echo $APP_NAME"
-              echo "Branch: ${env.BRANCH_NAME}"
-            }
-
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
-                sh "docker build -f Dockerfile.nginx -t $APP_NAME ."
+                sh 'docker buildx use pibuilder'
+                sh 'docker buildx inspect --bootstrap'
+                sh "docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -f Dockerfile.nginx -t $APP_NAME ."
                 sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
+                sh "docker build -f Dockerfile.nginx -t $APP_NAME:${currentBuild.number} --platform arm ."
               }
             }
 
             stage("Deploy"){
-                sh "docker save -o /tmp/$APP_NAME-docker-image.tar gddev-website:${currentBuild.number}"
-                sh "docker rmi -f \$(docker images -q gddev-website)"
+                sh "docker save -o /tmp/$APP_NAME-docker-image.tar $APP_NAME:${currentBuild.number}"
+                sh "docker rmi -f \$(docker images -q $APP_NAME)"
                 sh "rsync -avzhe ssh -v /tmp/$APP_NAME-docker-image.tar $DEPLOYMENT_SERVER:/tmp/"
                 sh "rm /tmp/$APP_NAME-docker-image.tar"
                 sh "ssh $DEPLOYMENT_SERVER \
-                'docker load -i /tmp/$APP_NAME-docker-image.tar && \
-                rm /tmp/$APP_NAME-docker-image.tar && \
-                docker stop $APP_NAME || true && \
+                'docker stop $APP_NAME || true && \
                 docker rm $APP_NAME || true && \
-                docker run --name gddev-website -d -p 80:3000 $APP_NAME'"
+                docker rmi -f \$(docker images -q $APP_NAME) && \
+                docker load -i /tmp/$APP_NAME-docker-image.tar && \
+                rm /tmp/$APP_NAME-docker-image.tar && \
+                docker run --name $APP_NAME -d -p 80:3000 $APP_NAME:${currentBuild.number}'"
             }
         } catch (err) {
             currentBuild.result = "FAILURE"
