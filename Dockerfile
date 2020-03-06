@@ -1,4 +1,4 @@
-FROM node:12.16.1-alpine3.10
+FROM node:13.10.1-alpine3.11
 WORKDIR /app
 
 # Versions
@@ -8,9 +8,6 @@ RUN node -v
 # Bundle app source
 COPY . ./
 
-# install and cache dependencies
-COPY package.json ./
-COPY package-lock.json ./
 RUN npm install
 
 ENV NODE_ENV development

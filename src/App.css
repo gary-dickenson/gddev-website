@@ -7,9 +7,15 @@
 body {
   font-family: arial, Helvetica, sans-serif;
   line-height: 1.4;
+  background-color: #111111;
+  color: white;
 }
 
 a {
-  color: #333;
+  color: white;
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }
