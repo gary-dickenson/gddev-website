@@ -5,7 +5,7 @@ WORKDIR /app
 # Bundle app source
 COPY . /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # install and cache dependencies
 RUN npm install
