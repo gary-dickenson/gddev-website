@@ -4,6 +4,7 @@ WORKDIR /app
 
 # Bundle app source
 COPY . /app
+RUN rm -rf node_modules
 
 ENV NODE_ENV=production
 
