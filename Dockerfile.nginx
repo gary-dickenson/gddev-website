@@ -1,6 +1,10 @@
 # Stage 1 - Building image
-FROM balenalib/raspberrypi4-64-alpine-node:8 as node
+FROM node:13.10.1-alpine3.10 as node
 WORKDIR /app
+
+USER root
+
+RUN install python
 
 # Bundle app source
 COPY . /app
