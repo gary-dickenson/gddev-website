@@ -4,8 +4,8 @@ WORKDIR /app
 
 USER root
 
-RUN sudo apt-get update
-RUN sudo apt-get install python
+RUN apt update
+RUN apt install python
 
 # Bundle app source
 COPY . /app
