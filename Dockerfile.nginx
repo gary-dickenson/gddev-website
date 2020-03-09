@@ -1,5 +1,5 @@
 # Stage 1 - Building image
-FROM node:12.16.1-alpine3.10 as node
+FROM balenalib/raspberrypi4-64-alpine-node:8 as node
 WORKDIR /app
 
 USER root
