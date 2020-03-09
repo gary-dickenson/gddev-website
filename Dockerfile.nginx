@@ -12,7 +12,7 @@ COPY . /app
 # install and cache dependencies
 #COPY package.json ./
 #COPY package-lock.json ./
-CMD ["npm", "install"]
+RUN ["npm", "install"]
 CMD ["npm", "build"]
 
 # Stage 2 - Running image
