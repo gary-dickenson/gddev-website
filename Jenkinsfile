@@ -10,9 +10,7 @@ node {
 
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
-                sh 'docker buildx use pibuilder'
-                sh 'docker buildx inspect --bootstrap'
-                sh "docker buildx build --platform linux/arm/v7 -f Dockerfile.nginx -t $APP_NAME ."
+                sh "docker build -f Dockerfile.nginx -t $APP_NAME ."
                 sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
                 sh "docker build -f Dockerfile.nginx -t $APP_NAME:${currentBuild.number} --platform arm ."
               }
