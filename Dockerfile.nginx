@@ -1,5 +1,5 @@
 # Stage 1 - Building image
-FROM node:12.16.1-alpine3.10 as node
+FROM arm32v7/node:12.16.1-alpine3.10 as node
 WORKDIR /app
 
 # Versions

@@ -1,4 +1,4 @@
-FROM node:12.16.1-alpine3.10
+FROM balenalib/raspberrypi4-64-alpine-node:8
 WORKDIR /app
 
 # Versions
