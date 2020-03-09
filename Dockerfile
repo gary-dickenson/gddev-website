@@ -11,7 +11,7 @@ COPY . ./
 # install and cache dependencies
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm install
+RUN npm ci
 
 ENV NODE_ENV development
 #ENV PORT 3000
