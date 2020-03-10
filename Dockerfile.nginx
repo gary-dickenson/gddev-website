@@ -1,5 +1,5 @@
 # Stage 1 - Building image
-FROM node:12.16.1-alpine3.11 as node
+FROM arm64v8/node:12.16.1-alpine3.11 as node
 WORKDIR /app
 
 # Bundle app source
