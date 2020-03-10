@@ -1,6 +1,5 @@
-#!/bin/sh
 # Stage 1 - Building image
-FROM arm32v7/node:12.16.1-alpine3.11 as node
+FROM 12.16.1-alpine3.11 as node
 WORKDIR /app
 
 # Bundle app source
