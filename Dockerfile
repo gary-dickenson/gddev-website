@@ -8,9 +8,6 @@ RUN node -v
 # Bundle app source
 COPY . ./
 
-# install and cache dependencies
-COPY package.json ./
-COPY package-lock.json ./
 RUN npm install
 
 ENV NODE_ENV development

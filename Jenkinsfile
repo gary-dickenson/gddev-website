@@ -1,7 +1,7 @@
 node {
     currentBuild.result = "SUCCESS"
 
-    withEnv(["DEPLOYMENT_SERVER=pi@pi-4", "APP_NAME=gddev-website"]){
+    withEnv(["DEPLOYMENT_SERVER=ubuntu@pi-4", "APP_NAME=gddev-website"]){
         try {
             deleteDir()
             stage("Checkout"){
