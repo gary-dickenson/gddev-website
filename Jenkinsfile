@@ -23,7 +23,7 @@ node {
                 sh "ssh $DEPLOYMENT_SERVER \
                 'docker stop $APP_NAME || true && \
                 docker rm $APP_NAME || true && \
-                docker rmi -f \$(docker images -q $APP_NAME) && \
+                docker rmi -f \$(docker images -q $APP_NAME) | true && \
                 docker load -i /tmp/$APP_NAME-docker-image.tar && \
                 rm /tmp/$APP_NAME-docker-image.tar && \
                 docker run --name $APP_NAME -d -p 80:3000 $APP_NAME:${currentBuild.number}'"
