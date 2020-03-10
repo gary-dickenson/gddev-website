@@ -1,12 +1,12 @@
 # Stage 1 - Building image
-FROM arm32v7/node:12.16.1-alpine as node
+FROM arm32v7/node:12.16.1-alpine3.11 as node
 WORKDIR /app
 
 # Bundle app source
 COPY . /app
 
 ENV NODE_ENV=production
-arm32v7/node:12.16.1-alpine3.10
+
 # install and cache dependencies
 RUN npm install
 RUN npm run build
