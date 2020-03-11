@@ -9,7 +9,6 @@ COPY . /app
 ENV NODE_ENV=production
 
 # install and cache dependencies
-RUN npm -v
 RUN npm install
 RUN npm run build
 
