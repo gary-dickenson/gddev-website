@@ -1,4 +1,4 @@
-
+#!/bin/bash
 # Stage 1 - Building image
 FROM arm64v8/node:13.10.1-buster as node
 WORKDIR /app
