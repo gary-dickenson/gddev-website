@@ -10,7 +10,7 @@ node {
 
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
-                sh "docker build -f Dockerfile.nginx -t $APP_NAME ."
+                sh "docker build -f Dockerfile -t $APP_NAME ."
                 sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
               }
             }
