@@ -1,6 +1,6 @@
-#!/bin/bash
+
 # Stage 1 - Building image
-FROM arm64v8/node:13.10.1-buster as node
+FROM arm32v7/node:12.16.1-alpine3.11 as node
 WORKDIR /app
 
 # Bundle app source
