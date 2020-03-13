@@ -19,7 +19,6 @@ node {
                 sh "docker save -o /tmp/$APP_NAME-docker-image.tar $APP_NAME:${currentBuild.number}"
                 sh "docker rmi -f \$(docker images -q $APP_NAME)"
                 sh "rsync -avzhe ssh -v /tmp/$APP_NAME-docker-image.tar $DEPLOYMENT_SERVER:/tmp/"
-                sh "rm /tmp/$APP_NAME-docker-image.tar"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER stop $APP_NAME || true"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER rm $APP_NAME || true"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER rmi -f \$(docker images -q $APP_NAME) | true"
