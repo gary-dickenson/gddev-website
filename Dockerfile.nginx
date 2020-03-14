@@ -24,6 +24,3 @@ HEALTHCHECK --interval=5s \
 
 ENV PUBLIC_PATH "/"
 EXPOSE 80
-
-# start nginx
-CMD ["nginx", "-g", "daemon off;"]
