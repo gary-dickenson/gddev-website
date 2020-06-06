@@ -15,6 +15,10 @@ node {
               }
             }
 
+            stage("Wake Target Host"){
+                sh "wakeonlan 64:00:6A:64:61:AE"
+            }
+
             stage("Deploy"){
                 sh "docker save -o /tmp/$APP_NAME-docker-image.tar $APP_NAME:${currentBuild.number}"
                 sh "docker rmi -f \$(docker images -q $APP_NAME)"
