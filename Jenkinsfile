@@ -25,7 +25,6 @@ node {
                 sh "docker -H ssh://$DEPLOYMENT_SERVER load -i /tmp/$APP_NAME-docker-image.tar"
                 sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER run --name $APP_NAME -d -p 80:3000 $APP_NAME:${currentBuild.number}"
-                sh "ssh $DEPLOYMENT_SERVER nginx"
             }
         } catch (err) {
             currentBuild.result = "FAILURE"
