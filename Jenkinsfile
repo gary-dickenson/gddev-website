@@ -4,6 +4,11 @@ node {
     withEnv(["DEPLOYMENT_SERVER=gary@optiplex-ubuntu", "APP_NAME=gddev-website"]){
         try {
             deleteDir()
+
+            stage("Wake Target Host"){
+                sh "wakeonlan 64:00:6A:64:61:AE"
+            }
+
             stage("Checkout"){
                 checkout scm
             }
