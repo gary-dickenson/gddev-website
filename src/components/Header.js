@@ -1,11 +1,13 @@
 import * as React from 'react';
-import '../Home.scss';
+import '../styles/AnimatedKeySkills.scss';
 
 const Header = () => {
     return (
-        <div>
-            <h1>GD Dev Ltd</h1>
-            <h2>IT Consultancy</h2>
+        <div className="app-header-container">
+            <div className="app-header-title">
+                <div className="grid-item"><h1>GD Dev Ltd</h1></div>
+                <div className="grid-item"><h2>IT Consultancy</h2></div>
+            </div>
         </div>
     );
 };

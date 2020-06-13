@@ -37,7 +37,7 @@ $ease-cb: cubic-bezier(.19,1,.22,1);
 //  @param: $bg_opacity:[0.6] - alpha transparency level
 //  @param: $top_layer: element or class name for higher z-index layer
 //--------------------------
-@mixin bg-overlay($bg_hex: #111, $bg_opacity: 0.6, $top_layer: 'header') {
+@mixin bg-overlay($bg_hex: #111111, $bg_opacity: 0.6, $top_layer: 'header') {
 &:after {
     z-index: 0;
     content: '';
@@ -47,7 +47,7 @@ $ease-cb: cubic-bezier(.19,1,.22,1);
     height: 100%;
     width: 100%;
     background: rgba($bg_hex, $bg_opacity);
-  }
+}
 
 // Layer atop overlay
   & > #{$top_layer}{
@@ -86,7 +86,7 @@ $ease-cb: cubic-bezier(.19,1,.22,1);
   display:flex;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  //height: 100vh;
   color: #fff;
   background-color: #111;
 @include bg-overlay(#111, 0.9);
