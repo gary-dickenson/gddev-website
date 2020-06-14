@@ -1,0 +1,18 @@
+@import "variables.scss";
+
+.footer-container {
+  grid-template-columns: 200px auto;
+}
+
+.contact-us-container {
+  grid-template-columns: 100px 110px auto;
+}
+
+.contact-us-method {
+  text-align: right;
+  img {
+    width: 40px;
+    padding: 5px;
+    vertical-align: middle;
+  }
+}
