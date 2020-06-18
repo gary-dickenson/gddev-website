@@ -1,7 +1,7 @@
 node {
     currentBuild.result = "SUCCESS"
 
-    withEnv(["DEPLOYMENT_SERVER=gary@optiplex-ubuntu", "APP_NAME=gddev-website"]){
+    withEnv(["DEPLOYMENT_SERVER=jenkins@optiplex-ubuntu", "APP_NAME=gddev-website"]){
         try {
             deleteDir()
 
