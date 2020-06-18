@@ -1,8 +1,6 @@
-import React, { Component } from 'react'
-import Home from './components/Home'
-import './App.css'
 import React, { Component } from 'react';
 import Home from './components/Home';
+import './App.css';
 import './styles/App.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
