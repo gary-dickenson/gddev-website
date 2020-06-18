@@ -1,19 +1,15 @@
 @import "variables.scss";
 
-.footer-container {
-  grid-template-columns: 200px auto;
-}
-
 .contact-us-container {
-  grid-template-columns: 100px 110px auto;
 }
 
-.contact-us-method {
-  text-align: right;
-  img {
-    width: 40px;
-    padding: 5px;
-    vertical-align: middle;
-  }
+.contact-us-item {
+  display: inline;
+  margin: 0 3em 0 0;
 }
 
+.contact-us-item > img {
+  width: 40px;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}

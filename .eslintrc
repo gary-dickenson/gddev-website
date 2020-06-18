@@ -11,5 +11,9 @@
     "react": {
       "version": "detect"
     }
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "semi": ["error", "never"]
   }
 }

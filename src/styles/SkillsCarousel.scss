@@ -1,0 +1,40 @@
+@import "variables.scss";
+
+// Config: fonts
+$font-mono: "Cutive Mono", monospace;
+
+.carousel .slide {
+  background-color: $primaryBackgroundColor;
+}
+
+.skills-carousel-content {
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.skill-header {
+  //padding: 5%;
+}
+
+.skill-title {
+  padding-top: 2em;
+  font-family: $font-mono;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.sep {
+  border: 0;
+  width: 3em;
+  height: 1px;
+  margin: 1em 0;
+}
+
+.skill-detail {
+  padding-bottom: 3em;
+  font-family: $font-mono;
+  font-size: 1em;
+  line-height: 1.5;
+}
