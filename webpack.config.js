@@ -33,7 +33,7 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.(s[ac]ss|min.css)$/i,
                 use: [
                     // Creates `style` nodes from JS strings
                     'style-loader',

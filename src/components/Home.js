@@ -1,10 +1,9 @@
 import * as React from 'react';
-import '../styles/AnimatedKeySkills.scss';
-import AnimatedKeySkills from './AnimatedKeySkills';
+import SkillsCarousel from './SkillsCarousel';
 
 const Home = () => {
     return (
-        <AnimatedKeySkills/>
+        <SkillsCarousel/>
     );
 };
 

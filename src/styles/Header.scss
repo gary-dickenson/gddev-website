@@ -1,7 +1,7 @@
 @import "variables.scss";
 
-.app-header-container {
-  grid-template-columns: 200px auto;
+.header-container {
+  flex: 1
 }
 
 .app-header-title {
