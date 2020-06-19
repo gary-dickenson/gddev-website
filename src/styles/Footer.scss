@@ -1,18 +1,15 @@
 @import "variables.scss";
 
-.footer-container {
-  flex: 1;
-}
-
 .contact-us-container {
-  grid-template-columns: auto auto;
-  img {
-    width: 40px;
-  }
 }
 
-.grid-item {
-  display: flex;
-  align-items: center;
+.contact-us-item {
+  display: inline;
+  margin: 0 3em 0 0;
 }
 
+.contact-us-item > img {
+  width: 40px;
+  margin: 0 0.5em 0 0;
+  vertical-align: middle;
+}

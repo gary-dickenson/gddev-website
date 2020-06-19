@@ -1,10 +1,10 @@
-import * as React from 'react';
-import SkillsCarousel from './SkillsCarousel';
+import * as React from 'react'
+import SkillsCarousel from './SkillsCarousel'
 
 const Home = () => {
-    return (
-        <SkillsCarousel/>
-    );
-};
+  return (
+    <SkillsCarousel/>
+  )
+}
 
-export default Home;
+export default Home
