@@ -13,7 +13,6 @@ node {
                 checkout scm
             }
 
-            @NonCPS
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
                 sh "docker build -f Dockerfile.nginx -t $APP_NAME ."
