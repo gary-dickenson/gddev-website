@@ -4,7 +4,7 @@ FROM node:13.10.1-alpine3.11 as node
 WORKDIR /app
 
 # Bundle app source
-COPY ./dist/* /app
+COPY dist /app
 
 # Stage 2 - Running image
 # set up production environment
