@@ -16,11 +16,11 @@ node {
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
                 sh "docker build -f Dockerfile.nginx -t $APP_NAME ."
-                sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
               }
             }
 
             stage("Deploy"){
+                sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
                 sh "docker save -o /tmp/$APP_NAME-docker-image.tar $APP_NAME:${currentBuild.number}"
                 sh "docker rmi -f \$(docker images -q $APP_NAME)"
                 sh "rsync -avzhe ssh -v /tmp/$APP_NAME-docker-image.tar $DEPLOYMENT_SERVER:/tmp/"
