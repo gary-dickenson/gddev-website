@@ -15,6 +15,8 @@ node {
 
             stage("Build"){
               if(env.BRANCH_NAME == "master"){
+                sh "sh yarn install"
+                sh "sh yarn build"
                 sh "docker build -f Dockerfile.nginx -t $APP_NAME ."
                 sh "docker tag $APP_NAME $APP_NAME:${currentBuild.number}"
               }

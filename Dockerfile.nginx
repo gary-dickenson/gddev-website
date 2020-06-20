@@ -4,19 +4,19 @@ FROM node:13.10.1-alpine3.11 as node
 WORKDIR /app
 
 # Bundle app source
-COPY . /app
+COPY ./dist/* /app
 
-ENV NODE_ENV=production
-
-# install and cache
-COPY package.json .
-RUN yarn install
-RUN yarn build
+#ENV NODE_ENV=production
+#
+## install and cache
+#COPY package.json .
+#RUN yarn install
+#RUN yarn build
 
 # Stage 2 - Running image
 # set up production environment
 FROM nginx:alpine
-COPY --from=node /app/dist /var/www/
+COPY --from=node /app /var/www/
 COPY /nginx/nginx.conf /etc/nginx/nginx.conf
 RUN apk --no-cache add curl
 HEALTHCHECK --interval=5s \
