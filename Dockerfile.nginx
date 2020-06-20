@@ -11,7 +11,7 @@ ENV NODE_ENV=production
 # install and cache
 COPY package.json .
 RUN yarn install
-RUN yarn webpack
+RUN yarn build
 
 # Stage 2 - Running image
 # set up production environment
