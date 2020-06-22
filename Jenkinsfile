@@ -42,7 +42,7 @@ node {
             //to: "gary@gddevltd.co.uk"
 
             throw err
-        } finally () {
+        } finally {
             sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
         }
     }
