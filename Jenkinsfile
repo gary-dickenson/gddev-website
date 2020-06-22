@@ -30,7 +30,7 @@ node {
                 sh "docker -H ssh://$DEPLOYMENT_SERVER rm $APP_NAME || true"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER rmi -f \$(docker images -q $APP_NAME) | true"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER load -i /tmp/$APP_NAME-docker-image.tar"
-                sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
+//                 sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER run --name $APP_NAME -d -p 80:80 $APP_NAME:${currentBuild.number}"
             }
         } catch (err) {
@@ -42,6 +42,8 @@ node {
             //to: "gary@gddevltd.co.uk"
 
             throw err
+        } finally () {
+            sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
         }
     }
 }

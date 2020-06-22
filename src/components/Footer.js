@@ -15,7 +15,8 @@ const Footer = () => {
       <div className="contact-us-item">
         <img src="/public/images/mailto.svg" alt="mailto"/>
         <span><a href={'mailto: ' + email}>{email}</a></span>
-      </div>    </div>
+      </div>
+    </div>
   )
 }
 

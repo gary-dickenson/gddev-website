@@ -1,10 +1,8 @@
 import * as React from 'react'
-import SkillsCarousel from './SkillsCarousel'
+import Skills from './Skills'
 
 const Home = () => {
-  return (
-    <SkillsCarousel/>
-  )
+  return (<Skills/>)
 }
 
 export default Home

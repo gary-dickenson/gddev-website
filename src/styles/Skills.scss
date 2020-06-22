@@ -1,0 +1,25 @@
+@import "variables.scss";
+
+.skill-title {
+  padding-top: 2em;
+  font-family: $primaryFont;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.sep {
+  border-top: 1px solid $secondaryFontColor;
+}
+
+.skill-detail {
+  padding-bottom: 3em;
+  font-family: $primaryFont;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.animated-area:hover {
+  cursor: url('../../public/images/pause.ico'), auto;
+}
