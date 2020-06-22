@@ -26,8 +26,16 @@ const keySkills = [
     title: 'Spring',
     detail: 'Something about SpringSomething about SpringSomething about SpringSomething about SpringSomething'
   },
-  { id: 3, title: 'Dropwizard', detail: 'Something about DropwizardSomething about DropwizardSomething about DropwizardSomething' },
-  { id: 4, title: 'React', detail: 'Something about ReactSomething about ReactSomething about ReactSomething about ReactSomething' },
+  {
+    id: 3,
+    title: 'Dropwizard',
+    detail: 'Something about DropwizardSomething about DropwizardSomething about DropwizardSomething'
+  },
+  {
+    id: 4,
+    title: 'React',
+    detail: 'Something about ReactSomething about ReactSomething about ReactSomething about ReactSomething'
+  },
   { id: 5, title: 'Kafka', detail: 'Something about Kafka' },
   { id: 6, title: 'Microservices', detail: 'Something about Microservices' },
   { id: 7, title: 'RESTful API\'s', detail: 'Something about RESTful API\'s' },
@@ -51,16 +59,16 @@ export default () => {
     if (isActive) {
       interval = setInterval(() => {
         setIndex(index => index === Object.keys(keySkills).length - 1 ? 0 : index + 1)
-      }, 6000)
+      }, 5000)
     }
     return () => clearInterval(interval)
   }, [isActive])
 
   const fadingTextPropsTransition = useTransition(keySkills[index], (item) => item.id, {
     from: { opacity: 0, width: '0vw' },
-    enter: { opacity: 1, width: '40vw' },
+    enter: { opacity: 1, width: '40' },
     leave: { opacity: 1, width: '40vw' },
-    config: { duration: 3000 }
+    config: { duration: 750, mass: 5, tension: 200, friction: 0, clamp: true }
   })
 
   return (fadingTextPropsTransition.map(({ item, props, key }) => (<animated.div
