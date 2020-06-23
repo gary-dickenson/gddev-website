@@ -1,7 +1,7 @@
 node {
     currentBuild.result = "SUCCESS"
 
-    withEnv(["DEPLOYMENT_SERVER=jenkins@optiplex-ubuntu", "APP_NAME=gddev-website"]){
+    withEnv(["DEPLOYMENT_SERVER=gary@optiplex-ubuntu", "APP_NAME=gddev-website"]){
         try {
             deleteDir()
 
@@ -23,14 +23,13 @@ node {
             }
 
             stage("Deploy"){
-                sh "docker save -o /tmp/$APP_NAME-docker-image.tar $APP_NAME:${currentBuild.number}"
+                sh "docker save -o /tmp/$APP_NAME-docker-image-${currentBuild.number}.tar $APP_NAME:${currentBuild.number}"
                 sh "docker rmi -f \$(docker images -q $APP_NAME)"
-                sh "rsync -avzhe ssh -v /tmp/$APP_NAME-docker-image.tar $DEPLOYMENT_SERVER:/tmp/"
+                sh "rsync -avzhe ssh -v /tmp/$APP_NAME-docker-image-${currentBuild.number}.tar $DEPLOYMENT_SERVER:/tmp/"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER stop $APP_NAME || true"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER rm $APP_NAME || true"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER rmi -f \$(docker images -q $APP_NAME) | true"
-                sh "docker -H ssh://$DEPLOYMENT_SERVER load -i /tmp/$APP_NAME-docker-image.tar"
-//                 sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
+                sh "docker -H ssh://$DEPLOYMENT_SERVER load -i /tmp/$APP_NAME-docker-image-${currentBuild.number}.tar"
                 sh "docker -H ssh://$DEPLOYMENT_SERVER run --name $APP_NAME -d -p 80:80 $APP_NAME:${currentBuild.number}"
             }
         } catch (err) {
@@ -43,7 +42,7 @@ node {
 
             throw err
         } finally {
-            sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image.tar"
+            sh "ssh $DEPLOYMENT_SERVER rm /tmp/$APP_NAME-docker-image-${currentBuild.number}.tar"
         }
     }
 }
