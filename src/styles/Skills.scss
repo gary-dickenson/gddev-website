@@ -1,25 +1,21 @@
-@import "variables.scss";
+@import 'variables.scss';
 
 .skill-title {
-  margin-top: 2em;
   font-family: $primaryFont;
-  font-size: 1.8em;
-  font-weight: 400;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
 
-.sep {
-  border-top: 1px solid $secondaryFontColor;
+.skills-container hr {
+  background: $secondaryColor;
+  height: 1px;
+  border: none;
 }
 
-.skill-detail {
-  margin-bottom: 3em;
-  font-family: $primaryFont;
-  font-size: 1.5em;
-  line-height: 1.5;
+.skills-container {
+  white-space: nowrap;
 }
 
-.animated-area:hover {
+.can-pause.skills-container:hover {
   cursor: url('/assets/images/pause.ico'), auto;
 }

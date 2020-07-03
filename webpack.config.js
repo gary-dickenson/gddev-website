@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const ASSET_PATH = process.env.ASSET_PATH || '/assets/'
 
@@ -14,14 +15,17 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
+    compress: true,
     hot: true,
     inline: true,
+    writeToDisk: true,
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000,
       ignored: /node_modules/
     },
-    disableHostCheck: true
+    disableHostCheck: true,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -42,20 +46,21 @@ module.exports = {
           'css-loader', // Compiles Sass to CSS
           'sass-loader'
         ]
-      },
-      {
-        test: /\.(svg|ico)$/,
-        exclude: /node_modules/,
-        use: ['url-loader']
       }
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
     new CopyPlugin({
-      patterns: [{ from: 'assets', to: 'assets' }]
+      patterns: [
+        { from: 'public/assets', to: 'assets' },
+        { from: 'public/manifest.json', to: 'manifest.json' },
+        { from: 'public/robots.txt', to: 'robots.txt' },
+        { from: 'public/CNAME' }
+      ]
     })
   ]
 }

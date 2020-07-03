@@ -1,15 +1,24 @@
 @import "variables.scss";
 
 .contact-us-container {
+  flex: 1;
+  justify-content: center;
+  display: flex;
 }
 
-.contact-us-item {
-  display: inline;
-  margin: 0 3em 0 0;
-}
-
-.contact-us-item > img {
-  width: 40px;
-  margin: 0 0.5em 0 0;
+.contact-us-container img {
+  width: 1.9rem;
   vertical-align: middle;
+  padding: 0 0.3rem;
 }
+
+.contact-us-phone {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.contact-us-email {
+  text-align: left;
+  padding-left: 1rem;
+}
+
