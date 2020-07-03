@@ -10,17 +10,18 @@ export default function Footer() {
     <footer id="site-footer" className="site-footer">
       <div className="container">
         <div id="contact-us-container" className="contact-us-container">
-          <div className="contact-us-phone">
+          <div className="contact-us-item">
             <img src="assets/images/call.svg" alt="call" />
-            <span>
-              <a href={'tel: ' + telephone}>{telephone}</a>
-            </span>
+            <a href={'tel: ' + telephone}>{telephone}</a>
           </div>
-          <div className="contact-us-email">
+          <div className="contact-us-item">
             <img src="assets/images/mailto.svg" alt="mailto" />
-            <span>
-              <a href={'mailto: ' + email}>{email}</a>
-            </span>
+            <a href={'mailto: ' + email}>{email}</a>
+          </div>
+          <div className="contact-us-item linkedin">
+            <a href="https://www.linkedin.com/in/dickensong/" target="_blank">
+              <img src="assets/images/linkedin.png" alt="linkedin" />
+            </a>
           </div>
         </div>
       </div>

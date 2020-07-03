@@ -2,8 +2,9 @@
 
 .contact-us-container {
   flex: 1;
-  justify-content: center;
+  justify-content: space-around;
   display: flex;
+  font-size: 0.7em;
 }
 
 .contact-us-container img {
@@ -12,13 +13,12 @@
   padding: 0 0.3rem;
 }
 
-.contact-us-phone {
-  text-align: right;
-  padding-right: 1rem;
+.contact-us-item {
+  text-align: center;
+  flex-shrink: 1
 }
 
-.contact-us-email {
-  text-align: left;
-  padding-left: 1rem;
+.linkedin img {
+  width: 5.3rem;
 }
 

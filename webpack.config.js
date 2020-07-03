@@ -11,20 +11,11 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
-    // publicPath: ASSET_PATH
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
-    compress: true,
     hot: true,
-    inline: true,
     writeToDisk: true,
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000,
-      ignored: /node_modules/
-    },
-    disableHostCheck: true,
     historyApiFallback: true
   },
   module: {
@@ -32,7 +23,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
+        use: ['babel-loader']
       },
       {
         test: /\.css$/i,
