@@ -1,13 +1,29 @@
 import * as React from 'react'
 import '../styles/Header.scss'
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+export default function Header() {
   return (
-    <div className="app-header-title">
-      <h1>GD Dev Ltd</h1>
-      <h2>IT Consultancy</h2>
-    </div>
+    <header id="site-header" className="site-header">
+      <div className="container">
+        <nav className="navbar">
+          <ul className="nav">
+            <li>
+              <div className="logo">
+                <a href="/">
+                  <h1>GD Dev Ltd</h1>
+                </a>
+                <h4>IT Consultancy</h4>
+              </div>
+            </li>
+            <li>
+              <Link to="/about">
+                <span>About</span>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   )
 }
-
-export default Header
