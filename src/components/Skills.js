@@ -13,19 +13,21 @@ const yearsExperience = () => {
 }
 
 const keySkills = [
-  { id: 1, title: 'Java' },
-  { id: 2, title: [yearsExperience() + ' Years Experience'] },
+  { id: 1, title: [yearsExperience() + ' Years Experience'] },
+  { id: 2, title: 'Java' },
   { id: 3, title: 'Test Driven Development' },
-  { id: 4, title: 'Spring Framework' },
+  { id: 4, title: 'Spring Boot' },
   { id: 5, title: 'Microservices' },
-  { id: 6, title: 'Continuous Integration' },
-  { id: 7, title: 'Docker' },
-  { id: 8, title: "RESTful API's" },
-  { id: 9, title: 'Automated Testing' },
-  { id: 10, title: 'React' },
-  { id: 11, title: 'Node.js' },
-  { id: 12, title: 'Javascript' },
-  { id: 13, title: 'Kafka' }
+  { id: 6, title: 'Self Taught' },
+  { id: 7, title: 'Continuous Integration' },
+  { id: 8, title: 'Docker' },
+  { id: 9, title: "RESTful API's" },
+  { id: 10, title: "Reactive Programming" },
+  { id: 11, title: 'Automated Testing' },
+  { id: 12, title: 'React' },
+  { id: 13, title: 'Node.js' },
+  { id: 14, title: 'Javascript' },
+  { id: 15, title: 'Kafka' }
 ]
 
 export default () => {
