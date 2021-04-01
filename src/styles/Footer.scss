@@ -1,5 +1,11 @@
 @import "variables.scss";
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 99vw;
+}
+
 .contact-us-container {
   flex: 1;
   justify-content: space-around;
@@ -10,7 +16,6 @@
 .contact-us-container img {
   width: 1.9rem;
   vertical-align: middle;
-  padding: 0 0.3rem;
 }
 
 .contact-us-item {
