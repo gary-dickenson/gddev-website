@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const ASSET_PATH = process.env.ASSET_PATH || '/assets/'
-
 module.exports = {
   entry: './src/index.js',
   devtool: 'inline-source-map',
@@ -33,9 +31,12 @@ module.exports = {
       {
         test: /\.(s[ac]ss|min.css)$/i,
         use: [
-          'style-loader', // Translates CSS into CommonJS
-          'css-loader', // Compiles Sass to CSS
-          'sass-loader'
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
         ]
       }
     ]

@@ -27,7 +27,12 @@ const keySkills = [
   { id: 12, title: 'React' },
   { id: 13, title: 'Node.js' },
   { id: 14, title: 'Javascript' },
-  { id: 15, title: 'Kafka' }
+  { id: 15, title: 'Kafka' },
+  { id: 16, title: 'Rust' },
+  { id: 17, title: 'HashiCorp Consul' },
+  { id: 18, title: 'HashiCorp Vault' },
+  { id: 19, title: 'IOT' },
+  { id: 20, title: 'OVH Cloud' }
 ]
 
 export default () => {

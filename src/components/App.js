@@ -1,10 +1,9 @@
 import React from 'react'
-import { Route } from 'react-router'
 import '../styles/App.scss'
 import Layout from './Layout'
 import About from './About'
 import Home from './Home'
-import { BrowserRouter, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 export default function App() {
   return (
