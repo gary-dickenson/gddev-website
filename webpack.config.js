@@ -29,6 +29,13 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
+        test: /\.(png)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '/public/assets/images/[name].[ext]'
+        }
+      },
+      {
         test: /\.(s[ac]ss|min.css)$/i,
         use: [
           // Creates `style` nodes from JS strings
