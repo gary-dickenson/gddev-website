@@ -3,17 +3,17 @@ import '../styles/App.scss'
 import Layout from './Layout'
 import About from './About'
 import Home from './Home'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Layout>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>} />
+        </Routes>
       </Layout>
-    </BrowserRouter>
+    </Router>
   )
 }
