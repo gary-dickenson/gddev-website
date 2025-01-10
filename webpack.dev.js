@@ -6,9 +6,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   // historyApiFallback: true
-  module: {
-    plugins: [
-      new BundleAnalyzerPlugin()
-    ]
-  }
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
 })
