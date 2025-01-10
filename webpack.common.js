@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   entry: './src/index.js',
@@ -59,7 +58,6 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       'React': 'react'
-    }),
-    new BundleAnalyzerPlugin()
+    })
   ]
 }
