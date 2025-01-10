@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      artifact_name: {{ steps.set-output.outputs.artifact_name }}
+      artifact_name: ${{ steps.set-output.outputs.artifact_name }}
 
     steps:
       - name: Checkout
