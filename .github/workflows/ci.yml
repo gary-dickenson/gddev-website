@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
-      - name: Install and Build
+      - name: Build
         run: |
           yarn install
           yarn build
@@ -23,7 +23,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4.6.0
         with:
-          artifact_name: gddev-site-artifact
+          name: gddev-website-artifact
           path: dist
 
   deploy:
@@ -31,7 +31,7 @@ jobs:
     needs: build
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy Artifact to GitHub Pages
         uses: actions/deploy-pages@v4.0.5
         with:
-          artifact_name: gddev-site-artifact
+          artifact_name: gddev-website-artifact
