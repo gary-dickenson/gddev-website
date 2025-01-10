@@ -1,19 +1,21 @@
 import React from 'react'
 import '../styles/App.scss'
 import Layout from './Layout'
-import About from './About'
-import Home from './Home'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-export default function App() {
-  return (
+const HomeComponent = React.lazy(() => import('./Home'))
+const AboutComponent = React.lazy(() => import('./About'))
+
+export default function App () {
+
+  return (<React.Suspense fallback={<p>Loading</p>}>
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<About/>} />
+          <Route path="/" element={<HomeComponent/>}/>
+          <Route path="/about" element={<AboutComponent/>}/>
         </Routes>
       </Layout>
     </Router>
-  )
+  </React.Suspense>)
 }

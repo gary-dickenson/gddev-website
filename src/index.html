@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Security-Policy"
-          content="default-src 'none'; script-src 'self' www.google-analytics.com www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; base-uri 'self'; img-src 'self' www.google-analytics.com www.googletagmanager.com;">
+          content="default-src 'none';
+            script-src 'self' *.google-analytics.com *.googletagmanager.com 'unsafe-inline';
+            style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+            font-src 'self' https://fonts.gstatic.com;
+            base-uri 'self';
+            manifest-src 'self';
+            img-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com;
+            connect-src 'self' *.google-analytics.com *.analytics.google.com *.googletagmanager.com;">
     <meta charset="utf-8"/>
-    <link rel="icon" href="https://gddevltd.co.uk/public/assets/images/favicon.png"/>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Ubuntu">
-
+    <link rel="icon" type="image/x-icon" href="public/assets/icon/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
-    <meta
-            name="description"
-            content="GD Dev Ltd provides IT Consultancy services with over 15 years experience in software development working with some of the UKs most well know and emerging businesses."
+    <meta name="description"
+          content="GD Dev Ltd provides IT Consultancy services with extensive experience in software development working with some of the UKs most well know and emerging businesses."
     />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="https://gddevltd.co.uk/public/manifest.json"/>
+    <link rel="manifest" href="/manifest.json"/>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -35,7 +40,7 @@
 <div id="root"></div>
 <!--
   This HTML file is a template.
-  If you open it directly in the browser, you will see an empty page.
+  If you open it directly in th;e browser, you will see an empty page.
 
   You can add webfonts, meta tags, or analytics to this file.
   The build step will place the bundled scripts into the <body> tag.

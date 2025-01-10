@@ -1,4 +1,3 @@
-import * as React from 'react'
 import '../styles/Footer.scss'
 
 // const consultantName = 'Gary Dickenson'

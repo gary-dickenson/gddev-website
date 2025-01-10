@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables.scss";
 
 * {
   box-sizing: border-box;
@@ -9,9 +9,9 @@ html {
   --maxWidth: 1284px;
   font-size: 1.6rem;
   font-weight: 400;
-  font-family: $primaryFont;
-  background-color: $primaryBackgroundColor;
-  color: $primaryColor;
+  font-family: variables.$primaryFont;
+  background-color: variables.$primaryBackgroundColor;
+  color: variables.$primaryColor;
   height: -webkit-fill-available;
 }
 

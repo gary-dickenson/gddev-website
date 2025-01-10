@@ -1,7 +1,9 @@
 const path = require('path')
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   entry: './src/index.js',
@@ -9,12 +11,6 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    hot: true,
-    writeToDisk: true,
-    historyApiFallback: true
   },
   module: {
     rules: [
@@ -55,11 +51,15 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'public/assets', to: 'assets' },
+        { from: 'public/assets/', to: 'assets' },
         { from: 'public/manifest.json', to: 'manifest.json' },
         { from: 'public/robots.txt', to: 'robots.txt' },
         { from: 'public/CNAME' }
       ]
-    })
+    }),
+    new webpack.ProvidePlugin({
+      'React': 'react'
+    }),
+    new BundleAnalyzerPlugin()
   ]
 }

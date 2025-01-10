@@ -1,4 +1,3 @@
-import * as React from 'react'
 import '../styles/Header.scss'
 import { Link } from 'react-router-dom'
 

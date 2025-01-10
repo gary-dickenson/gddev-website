@@ -1,4 +1,3 @@
-import * as React from 'react'
 import '../styles/ComingSoon.scss'
 
 export default function ComingSoon() {

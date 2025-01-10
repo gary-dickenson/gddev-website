@@ -1,8 +1,6 @@
-import * as React from 'react'
 import { useEffect, useState } from 'react'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import '../styles/Skills.scss'
-import { animated, useTransition } from 'react-spring'
+import { animated, useTransition } from '@react-spring/web'
 import { isMobile } from 'react-device-detect'
 
 const yearsExperience = () => {
@@ -12,30 +10,24 @@ const yearsExperience = () => {
   return yearsDiff
 }
 
-const keySkills = [
-  { id: 1, title: [yearsExperience() + ' Years Experience'] },
-  { id: 2, title: 'Java' },
-  { id: 3, title: 'Test Driven Development' },
-  { id: 4, title: 'Spring Boot' },
+const data = [
+  { id: 1, title: ['Over ' + yearsExperience() + ' Years Experience'] },
+  { id: 12, title: 'Full Stack Development' },
+  // { id: 16, title: 'Cloud Infrastructure Management' },
   { id: 5, title: 'Microservices' },
-  { id: 6, title: 'Self Taught' },
-  { id: 7, title: 'Continuous Integration' },
-  { id: 8, title: 'Docker' },
-  { id: 9, title: "RESTful API's" },
+  { id: 9, title: "RESTful Web API's" },
+  { id: 7, title: 'Systems Integration' },
+  { id: 7, title: 'Application Design' },
+  { id: 8, title: 'Containerisation' },
   { id: 10, title: "Reactive Programming" },
-  { id: 11, title: 'Automated Testing' },
-  { id: 12, title: 'React' },
-  { id: 13, title: 'Node.js' },
-  { id: 14, title: 'Javascript' },
-  { id: 15, title: 'Kafka' },
-  { id: 16, title: 'Rust' },
-  { id: 17, title: 'HashiCorp Consul' },
-  { id: 18, title: 'HashiCorp Vault' },
-  { id: 19, title: 'IOT' },
-  { id: 20, title: 'OVH Cloud' }
+  { id: 11, title: 'Automation' },
+  { id: 7, title: 'Continuous Delivery' },
+  // { id: 20, title: 'Amazon Web Services' },
+  // { id: 20, title: 'Monitoring' },
+  // { id: 20, title: 'Metrics' },
 ]
 
-export default () => {
+export default ({ keySkills = data }) => {
   const [index, setIndex] = useState(0)
   const [isActive, setIsActive] = useState(true)
 
@@ -55,10 +47,10 @@ export default () => {
     return () => clearInterval(interval)
   }, [isActive])
 
-  const fadingTextPropsTransition = useTransition(
+  const skillsTransitions = useTransition(
     keySkills[index],
-    (item) => item.id,
     {
+      exitBeforeEnter: true,
       from: { opacity: 0, width: '0%' },
       enter: { opacity: 1, width: '100%' },
       leave: { opacity: 1, width: '100%' },
@@ -72,11 +64,11 @@ export default () => {
     }
   )
 
-  return fadingTextPropsTransition.map(({ item, props, key }) => (
+  return skillsTransitions((style, item) => (
     <animated.div
       className={`skills-container ${!isMobile ? 'can-pause' : ''} `}
-      key={'main_' + key}
-      style={{ ...props }}
+      key={'main_' + item.id}
+      style={style}
       onMouseEnter={!isMobile ? toggle : null}
       onMouseLeave={!isMobile ? toggle : null}
     >

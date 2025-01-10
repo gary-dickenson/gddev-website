@@ -1,7 +1,7 @@
-@import "variables.scss";
+@use "variables.scss";
 
 .site-header h1 {
-  background: $highlightColor;
+  background: variables.$highlightColor;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -15,7 +15,7 @@
 }
 
 .site-header .logo h4 {
-  color: $secondaryColor;
+  color: variables.$secondaryColor;
 }
 
 .site-header ul.nav {

@@ -1,16 +1,17 @@
-import Header from './Header'
-import Footer from './Footer'
-import React, { Component } from 'react'
+import { Component } from 'react'
+
+const HeaderComponent = React.lazy(() => import('./Header'))
+const FooterComponent = React.lazy(() => import('./Footer'))
 
 class Layout extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <HeaderComponent />
         <main id="containers" className="containers">
           {this.props.children}
         </main>
-        <Footer />
+        <FooterComponent />
       </div>
     )
   }

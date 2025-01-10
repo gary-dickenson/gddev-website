@@ -1,13 +1,13 @@
-@import 'variables.scss';
+@use 'variables.scss';
 
 .skill-title {
-  font-family: $primaryFont;
+  font-family: variables.$primaryFont;
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
 
 .skills-container hr {
-  background: $secondaryColor;
+  background: variables.$secondaryColor;
   height: 1px;
   border: none;
 }
