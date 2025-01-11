@@ -11,7 +11,7 @@
     "react-router-dom": "^7.1.1"
   },
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
+    "start": "webpack serve --open --config webpack.prod.js",
     "build": "webpack --config webpack.prod.js",
     "sitemap": "babel-node src/sitemap-builder.js",
     "test": "react-scripts test",

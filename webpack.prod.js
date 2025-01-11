@@ -1,23 +1,17 @@
 const { merge } = require('webpack-merge')
-const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.common.js')
+const path = require('path')
 
 module.exports = merge(common, {
   mode: 'production',
   target: 'node',
-  externals: [nodeExternals()],
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
     ]
-  },
+  }
 })

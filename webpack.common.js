@@ -8,21 +8,11 @@ module.exports = {
   entry: './src/index.js',
   devtool: 'inline-source-map',
   output: {
-    filename: '[name].[hash].js',
+    filename: '[name].[fullhash].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      {
-        test: /\.css$/i,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader']
-      },
       {
         test: /\.(png)$/i,
         loader: 'file-loader',
