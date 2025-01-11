@@ -25,7 +25,6 @@ jobs:
         uses: actions/configure-pages@v5.0.0
 
       - name: Upload Artifact
-        id: deployment
         uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: dist/
@@ -45,4 +44,5 @@ jobs:
 
     steps:
       - name: Deploy Artifact to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4.0.5
