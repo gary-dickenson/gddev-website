@@ -49,7 +49,7 @@ jobs:
       - name: Print Folder Tree
         uses: jaywcjlove/github-action-folder-tree@main
         with:
-          exclude: "node_modules|dist|.git|.husky"
+          exclude: "node_modules|.git|.husky"
           path: ./
           depth: 5
 
