@@ -5,6 +5,10 @@ const path = require('path')
 module.exports = merge(common, {
   mode: 'production',
   target: 'node',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
   module: {
     rules: [
       {
