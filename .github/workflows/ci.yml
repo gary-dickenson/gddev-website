@@ -18,8 +18,9 @@ jobs:
       - name: Build
         id: build
         run: |
-          yarn install
+          yarn install --frozen-lockfile
           yarn build
+          yarn export
 
   deploy:
     permissions:
