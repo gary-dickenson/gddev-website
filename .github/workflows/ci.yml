@@ -36,7 +36,6 @@ jobs:
 
       - run: yarn install --immutable
       - run: yarn build
-      - run: yarn export
 
       - name: Print Folder Tree
         uses: jaywcjlove/github-action-folder-tree@main
