@@ -35,7 +35,10 @@ jobs:
 #           restore-keys: |
 #             ${{ runner.os }}-yarn-
 
+      - name: Install Dependencies
       - run: yarn install --immutable
+
+      - name: Build
       - run: yarn build
 
       - name: Print Folder Tree
@@ -44,9 +47,14 @@ jobs:
           path: ./dist
           depth: 5
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gary-dickenson.github.io
+      - name: Deploy
+      - run: yarn deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./dist
+#           publish_branch: gary-dickenson.github.io
