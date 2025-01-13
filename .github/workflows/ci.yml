@@ -36,10 +36,10 @@ jobs:
 #             ${{ runner.os }}-yarn-
 
       - name: Install Dependencies
-      - run: yarn install --immutable
+        run: yarn install --immutable
 
       - name: Build
-      - run: yarn build
+        run: yarn build
 
       - name: Print Folder Tree
         uses: jaywcjlove/github-action-folder-tree@main
@@ -48,7 +48,7 @@ jobs:
           depth: 5
 
       - name: Deploy
-      - run: yarn deploy
+        run: yarn deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
