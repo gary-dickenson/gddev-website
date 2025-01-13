@@ -47,14 +47,14 @@ jobs:
           path: ./dist
           depth: 5
 
-      - name: Deploy
-        run: yarn deploy
-        env:
-          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+#       - name: Deploy
+#         run: yarn deploy
+#         env:
+#           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
 
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./dist
-#           publish_branch: gary-dickenson.github.io
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gary-dickenson.github.io
